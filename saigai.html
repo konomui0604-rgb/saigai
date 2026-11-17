@@ -1,0 +1,299 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #f2f6fa;
+    color: #263445;
+    margin: 0 auto;
+    padding: 24px;
+    max-width: 900px;
+}
+
+h1 {
+    color: #174a76;
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+label {
+    display: block;
+    padding: 8px 0;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #1769aa;
+    color: white;
+    cursor: pointer;
+}
+
+#result, #reason {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#belongings {
+    background: white;
+    padding: 16px 16px 16px 36px;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    button {
+        min-height: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+<h1>避難判断システム</h1>
+    <p>現在の状況を選択して、判定ボタンを押してください。</p>
+<h3>音声による避難判断</h3>
+
+<p>マイクボタンを押して、現在の状況を話してください。</p>
+
+<button onclick="startVoice()">音声入力を開始</button>
+
+<p id="voiceStatus">音声入力待機中</p>
+
+<textarea
+    id="voiceText"
+    placeholder="認識した音声がここに表示されます。"
+    rows="3"
+    style="width:100%; padding:10px; font-size:16px;">
+</textarea>
+
+<button onclick="searchVoice()">音声内容から避難判断する</button>
+
+<hr>
+
+    <h3>1. 災害レベルの選択</h3>
+    <select id="disaster">
+        <option value="">選択してください</option>
+        <option value="5">警戒レベル5</option>
+        <option value="4">警戒レベル4</option>
+        <option value="3">警戒レベル3（高齢者等避難）</option>
+        <option value="0">警戒レベルなし</option>
+    </select>
+
+    <h3>2. 一緒に避難する人</h3>
+    <label>
+        <input type="checkbox" id="elderly"> 高齢者・乳幼児がいる
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" id="pet"> ペットがいる
+    </label>
+
+    <br><br>
+
+    <button onclick="checkData()">避難の判定をする</button>
+
+    
+    <hr>
+    <h3>判定結果</h3>
+    <div id="result">
+        ここに判定結果が表示されます。
+    </div>
+
+    <h3>判定理由</h3>
+    <p id="reason">判定後に理由を表示します。</p>
+
+    <h3>推奨される持ち物</h3>
+    <ul id="belongings">
+        <li>判定後に持ち物を表示します。</li>
+    </ul>
+
+    <script>
+    function checkData() {
+        const disaster = document.getElementById("disaster").value;
+        const elderly = document.getElementById("elderly").checked;
+        const pet = document.getElementById("pet").checked;
+
+        let result = "";
+        let reason = "";
+
+        if (disaster === "") {
+            result = "災害レベルを選択してください。";
+            reason = "災害レベルを選択してください。";
+
+        } else if (disaster === "5") {
+            result = "警戒レベル5：避難してください。";
+            reason = "災害が発生、または切迫している可能性があります。";
+
+        } else if (disaster === "4") {
+            result = "警戒レベル4：危険な場所から離れてください。";
+            reason = "危険な場所にいる人は避難が必要です。";
+
+        } else if (disaster === "3") {
+            if (elderly) {
+                result = "警戒レベル3：高齢者は避難してください。";
+                reason = "避難に時間がかかる人は早めの避難が必要です。";
+            } else {
+                result = "警戒レベル3：避難の準備をしてください。";
+                reason = "気象情報や周囲の状況を確認してください。";
+            }
+
+        } else if (disaster === "0") {
+            result = "警戒レベルなし：最新の災害情報を確認してください。";
+            reason = "警戒レベルがなくても危険な場合があります。";
+        }
+
+        if (pet) {
+            reason += " ペットと避難できる場所も確認してください。";
+        }
+
+        document.getElementById("result").textContent = result;
+        document.getElementById("reason").textContent = reason;
+
+        const belongings = document.getElementById("belongings");
+        belongings.innerHTML = "";
+
+        let items = ["水・食料", "スマートフォン・充電器"];
+
+        if (elderly) {
+            items.push("薬");
+            items.push("乳幼児用品");
+        }
+
+        if (pet) {
+            items.push("ペットフード・水飲み");
+            items.push("リード・ペットケース");
+        }
+
+        for (let i = 0; i < items.length; i++) {
+            const li = document.createElement("li");
+            li.textContent = items[i];
+            belongings.appendChild(li);
+        }
+    }
+   
+function startVoice() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert("このブラウザは音声認識に対応していません。");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "ja-JP";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    document.getElementById("voiceStatus").textContent =
+        "音声を聞き取っています";
+
+    recognition.onresult = function(event) {
+
+        const text = event.results[0][0].transcript;
+
+        document.getElementById("voiceText").value = text;
+
+        document.getElementById("voiceStatus").textContent =
+            "音声を認識しました。内容を確認してください。";
+    };
+
+    recognition.onerror = function(event) {
+        document.getElementById("voiceStatus").textContent =
+            "音声認識エラー：" + event.error;
+    };
+
+    recognition.onend = function() {
+        
+    };
+
+    recognition.start();
+}
+
+
+
+function searchVoice() {
+
+    const text = document.getElementById("voiceText").value;
+
+    if (text === "") {
+        alert("先に音声を入力してください。");
+        return;
+    }
+
+   
+    const disaster = document.getElementById("disaster");
+
+    if (text.includes("5") || text.includes("五")) {
+        disaster.value = "5";
+
+    } else if (text.includes("4") || text.includes("四")) {
+        disaster.value = "4";
+
+    } else if (text.includes("3") || text.includes("三")) {
+        disaster.value = "3";
+    }
+
+    const elderly = document.getElementById("elderly");
+
+    if (text.includes("高齢者") ||
+        text.includes("乳幼児")) {
+        elderly.checked = true;
+    }
+
+    // ペットを読み取る
+    const pet = document.getElementById("pet");
+
+    if (text.includes("ペット") ||
+        text.includes("犬") ||
+        text.includes("猫")) {
+        pet.checked = true;
+    }
+
+    checkData();
+}
+    </script>
+
+</body>
+</html>
