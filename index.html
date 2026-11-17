@@ -87,62 +87,62 @@ button {
 </head>
 
 <body>
-<h1>”ð“ï”»’fƒVƒXƒeƒ€</h1>
-    <p>Œ»Ý‚Ìó‹µ‚ð‘I‘ð‚µ‚ÄA”»’èƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B</p>
-<h3>‰¹º‚É‚æ‚é”ð“ï”»’f</h3>
+<h1>é¿é›£åˆ¤æ–­ã‚·ã‚¹ãƒ†ãƒ </h1>
+    <p>ç¾åœ¨ã®çŠ¶æ³ã‚’é¸æŠžã—ã¦ã€åˆ¤å®šãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚</p>
+<h3>éŸ³å£°ã«ã‚ˆã‚‹é¿é›£åˆ¤æ–­</h3>
 
-<p>ƒ}ƒCƒNƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚ÄAŒ»Ý‚Ìó‹µ‚ð˜b‚µ‚Ä‚­‚¾‚³‚¢B</p>
+<p>ãƒžã‚¤ã‚¯ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã€ç¾åœ¨ã®çŠ¶æ³ã‚’è©±ã—ã¦ãã ã•ã„ã€‚</p>
 
-<button onclick="startVoice()">‰¹º“ü—Í‚ðŠJŽn</button>
+<button onclick="startVoice()">éŸ³å£°å…¥åŠ›ã‚’é–‹å§‹</button>
 
-<p id="voiceStatus">‰¹º“ü—Í‘Ò‹@’†</p>
+<p id="voiceStatus">éŸ³å£°å…¥åŠ›å¾…æ©Ÿä¸­</p>
 
 <textarea
     id="voiceText"
-    placeholder="”FŽ¯‚µ‚½‰¹º‚ª‚±‚±‚É•\Ž¦‚³‚ê‚Ü‚·B"
+    placeholder="èªè­˜ã—ãŸéŸ³å£°ãŒã“ã“ã«è¡¨ç¤ºã•ã‚Œã¾ã™ã€‚"
     rows="3"
     style="width:100%; padding:10px; font-size:16px;">
 </textarea>
 
-<button onclick="searchVoice()">‰¹º“à—e‚©‚ç”ð“ï”»’f‚·‚é</button>
+<button onclick="searchVoice()">éŸ³å£°å†…å®¹ã‹ã‚‰é¿é›£åˆ¤æ–­ã™ã‚‹</button>
 
 <hr>
 
-    <h3>1. ÐŠQƒŒƒxƒ‹‚Ì‘I‘ð</h3>
+    <h3>1. ç½å®³ãƒ¬ãƒ™ãƒ«ã®é¸æŠž</h3>
     <select id="disaster">
-        <option value="">‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢</option>
-        <option value="5">Œx‰úƒŒƒxƒ‹5</option>
-        <option value="4">Œx‰úƒŒƒxƒ‹4</option>
-        <option value="3">Œx‰úƒŒƒxƒ‹3i‚—îŽÒ“™”ð“ïj</option>
-        <option value="0">Œx‰úƒŒƒxƒ‹‚È‚µ</option>
+        <option value="">é¸æŠžã—ã¦ãã ã•ã„</option>
+        <option value="5">è­¦æˆ’ãƒ¬ãƒ™ãƒ«5</option>
+        <option value="4">è­¦æˆ’ãƒ¬ãƒ™ãƒ«4</option>
+        <option value="3">è­¦æˆ’ãƒ¬ãƒ™ãƒ«3ï¼ˆé«˜é½¢è€…ç­‰é¿é›£ï¼‰</option>
+        <option value="0">è­¦æˆ’ãƒ¬ãƒ™ãƒ«ãªã—</option>
     </select>
 
-    <h3>2. ˆê‚É”ð“ï‚·‚él</h3>
+    <h3>2. ä¸€ç·’ã«é¿é›£ã™ã‚‹äºº</h3>
     <label>
-        <input type="checkbox" id="elderly"> ‚—îŽÒE“û—cŽ™‚ª‚¢‚é
+        <input type="checkbox" id="elderly"> é«˜é½¢è€…ãƒ»ä¹³å¹¼å…ãŒã„ã‚‹
     </label>
     <br>
     <label>
-        <input type="checkbox" id="pet"> ƒyƒbƒg‚ª‚¢‚é
+        <input type="checkbox" id="pet"> ãƒšãƒƒãƒˆãŒã„ã‚‹
     </label>
 
     <br><br>
 
-    <button onclick="checkData()">”ð“ï‚Ì”»’è‚ð‚·‚é</button>
+    <button onclick="checkData()">é¿é›£ã®åˆ¤å®šã‚’ã™ã‚‹</button>
 
     
     <hr>
-    <h3>”»’èŒ‹‰Ê</h3>
+    <h3>åˆ¤å®šçµæžœ</h3>
     <div id="result">
-        ‚±‚±‚É”»’èŒ‹‰Ê‚ª•\Ž¦‚³‚ê‚Ü‚·B
+        ã“ã“ã«åˆ¤å®šçµæžœãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
     </div>
 
-    <h3>”»’è——R</h3>
-    <p id="reason">”»’èŒã‚É——R‚ð•\Ž¦‚µ‚Ü‚·B</p>
+    <h3>åˆ¤å®šç†ç”±</h3>
+    <p id="reason">åˆ¤å®šå¾Œã«ç†ç”±ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚</p>
 
-    <h3>„§‚³‚ê‚éŽ‚¿•¨</h3>
+    <h3>æŽ¨å¥¨ã•ã‚Œã‚‹æŒã¡ç‰©</h3>
     <ul id="belongings">
-        <li>”»’èŒã‚ÉŽ‚¿•¨‚ð•\Ž¦‚µ‚Ü‚·B</li>
+        <li>åˆ¤å®šå¾Œã«æŒã¡ç‰©ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚</li>
     </ul>
 
     <script>
@@ -155,33 +155,33 @@ button {
         let reason = "";
 
         if (disaster === "") {
-            result = "ÐŠQƒŒƒxƒ‹‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B";
-            reason = "ÐŠQƒŒƒxƒ‹‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B";
+            result = "ç½å®³ãƒ¬ãƒ™ãƒ«ã‚’é¸æŠžã—ã¦ãã ã•ã„ã€‚";
+            reason = "ç½å®³ãƒ¬ãƒ™ãƒ«ã‚’é¸æŠžã—ã¦ãã ã•ã„ã€‚";
 
         } else if (disaster === "5") {
-            result = "Œx‰úƒŒƒxƒ‹5F”ð“ï‚µ‚Ä‚­‚¾‚³‚¢B";
-            reason = "ÐŠQ‚ª”­¶A‚Ü‚½‚ÍØ”—‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B";
+            result = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«5ï¼šé¿é›£ã—ã¦ãã ã•ã„ã€‚";
+            reason = "ç½å®³ãŒç™ºç”Ÿã€ã¾ãŸã¯åˆ‡è¿«ã—ã¦ã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚";
 
         } else if (disaster === "4") {
-            result = "Œx‰úƒŒƒxƒ‹4FŠëŒ¯‚ÈêŠ‚©‚ç—£‚ê‚Ä‚­‚¾‚³‚¢B";
-            reason = "ŠëŒ¯‚ÈêŠ‚É‚¢‚él‚Í”ð“ï‚ª•K—v‚Å‚·B";
+            result = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«4ï¼šå±é™ºãªå ´æ‰€ã‹ã‚‰é›¢ã‚Œã¦ãã ã•ã„ã€‚";
+            reason = "å±é™ºãªå ´æ‰€ã«ã„ã‚‹äººã¯é¿é›£ãŒå¿…è¦ã§ã™ã€‚";
 
         } else if (disaster === "3") {
             if (elderly) {
-                result = "Œx‰úƒŒƒxƒ‹3F‚—îŽÒ‚Í”ð“ï‚µ‚Ä‚­‚¾‚³‚¢B";
-                reason = "”ð“ï‚ÉŽžŠÔ‚ª‚©‚©‚él‚Í‘‚ß‚Ì”ð“ï‚ª•K—v‚Å‚·B";
+                result = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«3ï¼šé«˜é½¢è€…ã¯é¿é›£ã—ã¦ãã ã•ã„ã€‚";
+                reason = "é¿é›£ã«æ™‚é–“ãŒã‹ã‹ã‚‹äººã¯æ—©ã‚ã®é¿é›£ãŒå¿…è¦ã§ã™ã€‚";
             } else {
-                result = "Œx‰úƒŒƒxƒ‹3F”ð“ï‚Ì€”õ‚ð‚µ‚Ä‚­‚¾‚³‚¢B";
-                reason = "‹CÛî•ñ‚âŽüˆÍ‚Ìó‹µ‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B";
+                result = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«3ï¼šé¿é›£ã®æº–å‚™ã‚’ã—ã¦ãã ã•ã„ã€‚";
+                reason = "æ°—è±¡æƒ…å ±ã‚„å‘¨å›²ã®çŠ¶æ³ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚";
             }
 
         } else if (disaster === "0") {
-            result = "Œx‰úƒŒƒxƒ‹‚È‚µFÅV‚ÌÐŠQî•ñ‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B";
-            reason = "Œx‰úƒŒƒxƒ‹‚ª‚È‚­‚Ä‚àŠëŒ¯‚Èê‡‚ª‚ ‚è‚Ü‚·B";
+            result = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«ãªã—ï¼šæœ€æ–°ã®ç½å®³æƒ…å ±ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚";
+            reason = "è­¦æˆ’ãƒ¬ãƒ™ãƒ«ãŒãªãã¦ã‚‚å±é™ºãªå ´åˆãŒã‚ã‚Šã¾ã™ã€‚";
         }
 
         if (pet) {
-            reason += " ƒyƒbƒg‚Æ”ð“ï‚Å‚«‚éêŠ‚àŠm”F‚µ‚Ä‚­‚¾‚³‚¢B";
+            reason += " ãƒšãƒƒãƒˆã¨é¿é›£ã§ãã‚‹å ´æ‰€ã‚‚ç¢ºèªã—ã¦ãã ã•ã„ã€‚";
         }
 
         document.getElementById("result").textContent = result;
@@ -190,16 +190,16 @@ button {
         const belongings = document.getElementById("belongings");
         belongings.innerHTML = "";
 
-        let items = ["…EH—¿", "ƒXƒ}[ƒgƒtƒHƒ“E[“dŠí"];
+        let items = ["æ°´ãƒ»é£Ÿæ–™", "ã‚¹ãƒžãƒ¼ãƒˆãƒ•ã‚©ãƒ³ãƒ»å……é›»å™¨"];
 
         if (elderly) {
-            items.push("–ò");
-            items.push("“û—cŽ™—p•i");
+            items.push("è–¬");
+            items.push("ä¹³å¹¼å…ç”¨å“");
         }
 
         if (pet) {
-            items.push("ƒyƒbƒgƒt[ƒhE…ˆù‚Ý");
-            items.push("ƒŠ[ƒhEƒyƒbƒgƒP[ƒX");
+            items.push("ãƒšãƒƒãƒˆãƒ•ãƒ¼ãƒ‰ãƒ»æ°´é£²ã¿");
+            items.push("ãƒªãƒ¼ãƒ‰ãƒ»ãƒšãƒƒãƒˆã‚±ãƒ¼ã‚¹");
         }
 
         for (let i = 0; i < items.length; i++) {
@@ -216,7 +216,7 @@ function startVoice() {
         window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-        alert("‚±‚Ìƒuƒ‰ƒEƒU‚Í‰¹º”FŽ¯‚É‘Î‰ž‚µ‚Ä‚¢‚Ü‚¹‚ñB");
+        alert("ã“ã®ãƒ–ãƒ©ã‚¦ã‚¶ã¯éŸ³å£°èªè­˜ã«å¯¾å¿œã—ã¦ã„ã¾ã›ã‚“ã€‚");
         return;
     }
 
@@ -227,7 +227,7 @@ function startVoice() {
     recognition.continuous = false;
 
     document.getElementById("voiceStatus").textContent =
-        "‰¹º‚ð•·‚«Žæ‚Á‚Ä‚¢‚Ü‚·";
+        "éŸ³å£°ã‚’èžãå–ã£ã¦ã„ã¾ã™";
 
     recognition.onresult = function(event) {
 
@@ -236,12 +236,12 @@ function startVoice() {
         document.getElementById("voiceText").value = text;
 
         document.getElementById("voiceStatus").textContent =
-            "‰¹º‚ð”FŽ¯‚µ‚Ü‚µ‚½B“à—e‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B";
+            "éŸ³å£°ã‚’èªè­˜ã—ã¾ã—ãŸã€‚å†…å®¹ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚";
     };
 
     recognition.onerror = function(event) {
         document.getElementById("voiceStatus").textContent =
-            "‰¹º”FŽ¯ƒGƒ‰[F" + event.error;
+            "éŸ³å£°èªè­˜ã‚¨ãƒ©ãƒ¼ï¼š" + event.error;
     };
 
     recognition.onend = function() {
@@ -258,36 +258,36 @@ function searchVoice() {
     const text = document.getElementById("voiceText").value;
 
     if (text === "") {
-        alert("æ‚É‰¹º‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+        alert("å…ˆã«éŸ³å£°ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
         return;
     }
 
    
     const disaster = document.getElementById("disaster");
 
-    if (text.includes("5") || text.includes("ŒÜ")) {
+    if (text.includes("5") || text.includes("äº”")) {
         disaster.value = "5";
 
-    } else if (text.includes("4") || text.includes("Žl")) {
+    } else if (text.includes("4") || text.includes("å››")) {
         disaster.value = "4";
 
-    } else if (text.includes("3") || text.includes("ŽO")) {
+    } else if (text.includes("3") || text.includes("ä¸‰")) {
         disaster.value = "3";
     }
 
     const elderly = document.getElementById("elderly");
 
-    if (text.includes("‚—îŽÒ") ||
-        text.includes("“û—cŽ™")) {
+    if (text.includes("é«˜é½¢è€…") ||
+        text.includes("ä¹³å¹¼å…")) {
         elderly.checked = true;
     }
 
-    // ƒyƒbƒg‚ð“Ç‚ÝŽæ‚é
+    // ãƒšãƒƒãƒˆã‚’èª­ã¿å–ã‚‹
     const pet = document.getElementById("pet");
 
-    if (text.includes("ƒyƒbƒg") ||
-        text.includes("Œ¢") ||
-        text.includes("”L")) {
+    if (text.includes("ãƒšãƒƒãƒˆ") ||
+        text.includes("çŠ¬") ||
+        text.includes("çŒ«")) {
         pet.checked = true;
     }
 
